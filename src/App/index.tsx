@@ -1,26 +1,10 @@
-import { useRef } from "react";
-import { Canvas } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
 import styles from "./styles.module.scss";
+import { Scene } from "../Scene";
 
 export const App = () => {
-  const modelRef = useRef<THREE.Group>(null);
-
-  const { scene } = useGLTF("/models/dice/mesh/dice.glb");
-
   return (
     <div className={styles.background}>
-      <Canvas className={styles.canvas} camera={{ position: [0, 0, 5], fov: 75 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[0, 1, 1]} intensity={1} />
-        <primitive
-          ref={modelRef}
-          object={scene}
-          position={[0, 0, 0]}
-          scale={[1, 1, 1]}
-        />
-      </Canvas>
+      <Scene />
       <div className={styles.container}>
         <div className={styles.buttonContainer}>
           <button
