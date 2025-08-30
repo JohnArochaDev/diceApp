@@ -13,7 +13,7 @@ export const App = () => {
     <div className={styles.background}>
       <Canvas className={styles.canvas} camera={{ position: [0, 0, 5], fov: 75 }}>
         <ambientLight intensity={0.5} />
-        <directionalLight position={[0, 1, 1]} intensity={0.5} />
+        <directionalLight position={[0, 1, 1]} intensity={1} />
         <primitive
           ref={modelRef}
           object={scene}

@@ -15,6 +15,7 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
+  background-image: linear-gradient(0, #2B383A, #20292B );
 }
 
 .canvas {
@@ -23,6 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  background: transparent;
 }
 
 .container {
@@ -35,13 +37,13 @@ body {
   justify-content: flex-end;
   flex-direction: column;
   padding: 20px;
-  background: linear-gradient(to bottom, rgba(28, 37, 38, 0.8), rgba(46, 59, 62, 0.8));
 }
 
 .buttonContainer {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  padding-bottom: 2vh;
 }
 
 .button {
