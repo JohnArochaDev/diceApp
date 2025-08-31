@@ -27,17 +27,24 @@ export const Box = ({
   // }));
 
   // Floor wall plane (normal points toward positive Z, at back of box)
-  const [floorRef] = usePlane(() => ({
+  usePlane(() => ({
     mass: 0,
     position: [0, 0, -boxDepth / 2],
     rotation: [0, 0, 0],
   }));
 
   // Bottom plane (normal points up, at bottom of box)
-  const [bottomRef] = usePlane(() => ({
+  usePlane(() => ({
     mass: 0,
     position: [0, -length / 2, -boxDepth / 2],
     rotation: [-Math.PI / 2, 0, 0], // Normal points up (+Y)
+  }));
+
+    // Top wall plane (normal points toward negative Z, at front of box)
+  const [topRef] = usePlane(() => ({
+    mass: 0,
+    position: [0, length / 2, boxDepth / 2],
+    rotation: [Math.PI / 2, 0, 0], // Normal points backward (-Z)
   }));
 
   return (
@@ -55,7 +62,7 @@ export const Box = ({
         <boxGeometry args={[scaledWidth, scaledLength, boxDepth]} />
         <meshBasicMaterial color="red" wireframe={true} />
       </mesh>
-      <mesh ref={bottomRef}>
+      <mesh ref={topRef}>
         <planeGeometry args={[100, 100]} />
         <meshBasicMaterial />
       </mesh>
