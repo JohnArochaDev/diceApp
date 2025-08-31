@@ -26,11 +26,18 @@ export const Box = ({
   //   args: [scaledWidth / 2, scaledLength / 2, boxDepth / 2], // Use half-extents for physics
   // }));
 
-  // Back wall plane (normal points toward positive Z, at back of box)
+  // Floor wall plane (normal points toward positive Z, at back of box)
   const [floorRef] = usePlane(() => ({
     mass: 0,
     position: [0, 0, -boxDepth / 2],
     rotation: [0, 0, 0],
+  }));
+
+  // Bottom plane (normal points up, at bottom of box)
+  const [bottomRef] = usePlane(() => ({
+    mass: 0,
+    position: [0, -length / 2, -boxDepth / 2],
+    rotation: [-Math.PI / 2, 0, 0], // Normal points up (+Y)
   }));
 
   return (
@@ -48,9 +55,9 @@ export const Box = ({
         <boxGeometry args={[scaledWidth, scaledLength, boxDepth]} />
         <meshBasicMaterial color="red" wireframe={true} />
       </mesh>
-      <mesh ref={floorRef}>
+      <mesh ref={bottomRef}>
         <planeGeometry args={[100, 100]} />
-        <meshBasicMaterial transparent opacity={0} />
+        <meshBasicMaterial />
       </mesh>
     </group>
   );
@@ -89,20 +96,6 @@ export const Box = ({
 //     window.addEventListener("resize", updateDimensions);
 //     return () => window.removeEventListener("resize", updateDimensions);
 //   }, [scaleFactor, distance]);
-
-//   // Floor plane (normal points up, at bottom of box)
-//   usePlane(() => ({
-//     mass: 0,
-//     position: [0, -dimensions.length / 2, -boxDepth / 2],
-//     rotation: [-Math.PI / 2, 0, 0], // Normal points up (+Y)
-//   }));
-
-//   // Back wall plane (normal points toward positive Z, at back of box)
-//   usePlane(() => ({
-//     mass: 0,
-//     position: [0, 0, boxDepth / 2],
-//     rotation: [0, Math.PI, 0], // Normal points forward (+Z)
-//   }));
 
 //   // Front wall plane (normal points toward negative Z, at front of box)
 //   usePlane(() => ({
