@@ -37,7 +37,7 @@ export const Floor = ({
       <meshStandardMaterial
         color="#20292b"
         transparent
-        opacity={.5}
+        opacity={0.5}
         side={THREE.BackSide}
       />
     </mesh>
