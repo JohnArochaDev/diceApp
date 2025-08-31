@@ -104,13 +104,6 @@ export const Box = ({
 //     return () => window.removeEventListener("resize", updateDimensions);
 //   }, [scaleFactor, distance]);
 
-//   // Front wall plane (normal points toward negative Z, at front of box)
-//   usePlane(() => ({
-//     mass: 0,
-//     position: [0, 0, 0],
-//     rotation: [0, 0, 0], // Normal points backward (-Z)
-//   }));
-
 //   // Left wall plane (normal points toward positive X, at left of box)
 //   usePlane(() => ({
 //     mass: 0,
