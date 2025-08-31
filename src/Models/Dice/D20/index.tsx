@@ -45,7 +45,7 @@ export const D20 = () => {
       THREE.MathUtils.degToRad(Math.random() * 360),
       THREE.MathUtils.degToRad(Math.random() * 360)
     );
-    api.velocity.set(1, 10, 0)
+    api.velocity.set(10, 0, 0)
   }, [api]);
 
   return (
