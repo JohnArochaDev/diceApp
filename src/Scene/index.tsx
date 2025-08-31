@@ -18,10 +18,10 @@ export const Scene = () => {
         gravity={[0, 0, -20]}
         iterations={100}
         defaultContactMaterial={{
-          friction: 0.9,
-          restitution: .2,
-          contactEquationStiffness: 1e10,
-          frictionEquationStiffness: 1e10,
+          friction: 1,
+          restitution: .1,
+          contactEquationStiffness: 10,
+          frictionEquationStiffness: 10,
         }}
       >
         <ambientLight intensity={0.5} />

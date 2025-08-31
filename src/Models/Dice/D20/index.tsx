@@ -32,7 +32,7 @@ export const D20 = () => {
 
   const [, api] = useConvexPolyhedron(
     () => ({
-      mass: 3,
+      mass: .1,
       position: [0, 0, 0],
       args: [vertices, faces],
     }),
@@ -45,7 +45,7 @@ export const D20 = () => {
       THREE.MathUtils.degToRad(Math.random() * 360),
       THREE.MathUtils.degToRad(Math.random() * 360)
     );
-    api.velocity.set(25, 50, 0)
+    api.velocity.set(25, 50, 0);
   }, [api]);
 
   return (
