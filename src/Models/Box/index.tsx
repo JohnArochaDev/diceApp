@@ -7,7 +7,7 @@ type FloorProps = {
   boxDepth?: number;
 };
 
-export const Floor = ({
+export const Box = ({
   scaleFactor = 1,
   boxDepth = 1,
   distance,

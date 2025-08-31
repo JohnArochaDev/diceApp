@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useConvexPolyhedron } from "@react-three/cannon";
 import * as THREE from "three";
@@ -8,7 +8,10 @@ export const D20 = () => {
   const { scene: d20 } = useGLTF("/models/D20/mesh/dice.glb");
   const { scene: d20Collider } = useGLTF("/models/D20/mesh/diceCollider.glb");
 
-  const geometry = d20Collider.children[0] instanceof THREE.Mesh ? d20Collider.children[0].geometry : null;
+  const geometry =
+    d20Collider.children[0] instanceof THREE.Mesh
+      ? d20Collider.children[0].geometry
+      : null;
   if (!geometry) throw new Error("No valid geometry found in diceCollider.glb");
 
   // Type vertices as [number, number, number][]
@@ -27,11 +30,22 @@ export const D20 = () => {
     ]);
   }
 
-  useConvexPolyhedron(() => ({
-    mass: 1,
-    position: [0, 0, 0],
-    args: [vertices, faces],
-  }), modelRef);
+  const [, api] = useConvexPolyhedron(
+    () => ({
+      mass: 1,
+      position: [0, 0, 0],
+      args: [vertices, faces],
+    }),
+    modelRef
+  );
+
+  useEffect(() => {
+    api.rotation.set(
+      THREE.MathUtils.degToRad(Math.random() * 360),
+      THREE.MathUtils.degToRad(Math.random() * 360),
+      THREE.MathUtils.degToRad(Math.random() * 360)
+    );
+  }, [api]);
 
   return (
     <primitive
