@@ -16,7 +16,7 @@ export const Scene = () => {
     >
       <Physics
         gravity={[0, 0, -20]}
-        iterations={100}
+        iterations={10000}
         defaultContactMaterial={{
           friction: 1,
           restitution: .1,
