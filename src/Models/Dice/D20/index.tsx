@@ -14,7 +14,6 @@ export const D20 = () => {
       : null;
   if (!geometry) throw new Error("No valid geometry found in diceCollider.glb");
 
-  // Type vertices as [number, number, number][]
   const vertexArray = geometry.attributes.position.array;
   const vertices: [number, number, number][] = [];
   for (let i = 0; i < vertexArray.length; i += 3) {
