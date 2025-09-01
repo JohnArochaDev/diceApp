@@ -15,10 +15,15 @@ export default function DiceSelect() {
   return (
     <div
       style={{
-        width: "100%",
+        position: "absolute",
+        top: "25vw",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "auto",
+        zIndex: 9,
+        pointerEvents: "auto",
         display: "flex",
         justifyContent: "center",
-        marginTop: "20px",
       }}
     >
       <Box sx={{ minWidth: 120 }}>

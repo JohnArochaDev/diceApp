@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "SpaceMono";
+  src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  position: absolute;
+  top: 10vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: auto;
+  pointer-events: none;
+}
+.title {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 4vw;
+  padding-left: 0;
+  letter-spacing: 0.15em;
+  text-shadow: 0 2px 8px rgba(212,160,23,0.25), 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.icon {
+  width: 5vw;
+  height: auto;
+}
