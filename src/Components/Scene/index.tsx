@@ -2,8 +2,8 @@ import { Canvas } from "@react-three/fiber";
 import styles from "./styles.module.scss";
 import { Physics } from "@react-three/cannon";
 
-import { D20 } from "../Models/Dice/D20";
-import { Box } from "../Models/Box";
+import { D20 } from "../../Models/Dice/D20";
+import { Box } from "../../Models/Box";
 
 export const Scene = () => {
   const distance = 5;
