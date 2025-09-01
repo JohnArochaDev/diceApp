@@ -1,12 +1,19 @@
 import styles from "./styles.module.scss";
+import { useScene } from "../../Context";
 
 export const RollButton = () => {
+  const { setReset } = useScene();
+
+	const onClick = () => {
+		setReset(true)
+	}
+
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
         <button
           className={styles.button}
-          onClick={() => console.log("Roll button pressed!")}
+          onClick={onClick}
           onMouseDown={() => ({ opacity: 0.7 })}
           onMouseUp={() => ({ opacity: 1 })}
         >
