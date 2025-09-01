@@ -45,3 +45,17 @@
   text-transform: uppercase;
   text-align: center;
 }
+
+.iconLeft {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.iconRight {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
