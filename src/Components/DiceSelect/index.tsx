@@ -12,13 +12,6 @@ export default function DiceSelect() {
     setDice(event.target.value as string);
   };
 
-  const options = (
-    <>
-      <MenuItem value={20}>D20</MenuItem>
-      <MenuItem value={6}>D6</MenuItem>
-    </>
-  );
-
   return (
     <div
       style={{
@@ -89,7 +82,8 @@ export default function DiceSelect() {
               },
             }}
           >
-            {options}
+            <MenuItem value={20}>D20</MenuItem>
+            <MenuItem value={6}>D6</MenuItem>
           </Select>
         </FormControl>
       </Box>
