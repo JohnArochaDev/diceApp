@@ -13,7 +13,7 @@ export const RollButton = () => {
     height: "5vh",
     width: "70vw",
     backgroundColor: "#4a2c2a",
-    borderRadius: "16px",
+    borderRadius: "7px",
     padding: "14px 32px",
     border: "1px solid #d4a017",
     boxShadow: "0 0 10px 4px rgba(212,160,23,.2), 0 4px 6px rgba(0,0,0,0.1)", // soft yellow glow with falloff + fainter shadow    transition: "opacity 0.2s",
@@ -26,6 +26,7 @@ export const RollButton = () => {
     fontWeight: 600,
     textTransform: "uppercase",
     textAlign: "center",
+    marginBottom: '1.5rem',
     "&:hover": {
       opacity: 0.7,
       backgroundColor: "#4a2c2a",
@@ -63,7 +64,7 @@ export const RollButton = () => {
             >
               <Icon path={mdiDice5} size={1} className={styles.iconLeft} />
             </span>
-            <span style={{ margin: "0 auto", textAlign: "center" }}>ROLL</span>
+            <span style={{ margin: "0 auto", textAlign: "center" }}>ROLL THE DICE</span>
             <span
               style={{
                 position: "absolute",
