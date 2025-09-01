@@ -7,6 +7,7 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  pointer-events: none;
 }
 
 .buttonContainer {
@@ -14,6 +15,7 @@
   display: flex;
   justify-content: center;
   padding-bottom: 2vh;
+  pointer-events: auto; // Enable pointer events on the button container
 }
 
 .button {
