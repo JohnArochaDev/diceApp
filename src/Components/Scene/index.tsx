@@ -1,12 +1,17 @@
 import { Canvas } from "@react-three/fiber";
 import styles from "./styles.module.scss";
 import { Physics } from "@react-three/cannon";
-
-import { D20 } from "../../Models/Dice/D20";
+import { useScene } from "../../Context";
+import { D20Vis } from "../../Models/Visualize/D20";
 import { Box } from "../../Models/Box";
+import { Suspense } from "react"; // Add this import
+import { D20 } from "../../Models/Dice/D20";
 
 export const Scene = () => {
+  const { simulate } = useScene();
   const distance = 5;
+
+  console.log('WAT DIS', simulate)
 
   return (
     <Canvas
@@ -19,16 +24,21 @@ export const Scene = () => {
         iterations={10000}
         defaultContactMaterial={{
           friction: 1,
-          restitution: .1,
+          restitution: 0.1,
           contactEquationStiffness: 10,
           frictionEquationStiffness: 10,
         }}
       >
         <ambientLight intensity={0.5} />
         <directionalLight castShadow position={[0, 1, 1]} intensity={1} />
-        <D20 />
         <Box distance={distance} />
+        <D20 />
       </Physics>
+      {!simulate && (
+        <Suspense fallback={null}>
+          <D20Vis />
+        </Suspense>
+      )}
     </Canvas>
   );
 };

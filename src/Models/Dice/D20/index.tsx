@@ -70,6 +70,7 @@ export const D20 = () => {
       mass: 0,
       position: [0, 0, 6],
       args: [vertices, faces],
+      scale: [.1, .1, .1],
       type: "Dynamic",
     }),
     modelRef
@@ -103,7 +104,7 @@ export const D20 = () => {
           api.mass.set(0);
           api.velocity.set(0, 0, 0);
           api.angularVelocity.set(0, 0, 0);
-          
+
           console.log("SHOULD BE ONCE AND NEVER AGAIN");
           determineDiceSide()
         }
