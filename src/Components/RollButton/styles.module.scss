@@ -27,6 +27,12 @@
   cursor: pointer;
   transition: opacity 0.2s;
 
+  -webkit-tap-highlight-color: transparent;
+  /* Optional extras for better touch handling */
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+
   &:hover {
     opacity: 0.7;
   }
