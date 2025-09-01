@@ -7,15 +7,12 @@ import { useFrame } from "@react-three/fiber";
 
 export const D20 = () => {
   const modelRef = useRef<THREE.Group>(null);
+  const restCounterRef = useRef(0);
+  const linearVelRef = useRef([0, 0, 0]);
+  const angularVelRef = useRef([0, 0, 0]);
+
   const { scene: d20 } = useGLTF("/models/D20/mesh/dice.glb");
   const { scene: d20Collider } = useGLTF("/models/D20/mesh/diceCollider.glb");
-
-  const restThreshold = 0.01;
-  const restFrameCount = 10;
-  const restCounterRef = useRef(0);
-  const [isAtRest, setIsAtRest] = useState(false);
-
-  const { simulate, reset } = useScene();
 
   const geometry =
     d20Collider.children[0] instanceof THREE.Mesh
@@ -23,13 +20,43 @@ export const D20 = () => {
       : null;
   if (!geometry) throw new Error("No valid geometry found in diceCollider.glb");
 
+  const restThreshold = 0.01;
+  const restFrameCount = 10;
+  const faces: number[][] = [];
   const vertexArray = geometry.attributes.position.array;
   const vertices: [number, number, number][] = [];
+  const normalAttribute = geometry.attributes.normal;
+  const normalsArray = normalAttribute.array;
+  const targetDirection = new THREE.Vector3(0, 1, 0).normalize(); // pointing upwards
+  const normalThreshold = 0.9;
+
+  const [isAtRest, setIsAtRest] = useState(false);
+  const { simulate, reset } = useScene();
+
+  const determineDiceSide = () => {
+    for (let i = 0; i < normalsArray.length; i += 3) {
+      const normal = new THREE.Vector3(
+        normalsArray[i],
+        normalsArray[i + 1],
+        normalsArray[i + 2]
+      ).normalize();
+
+      const dotProduct = normal.dot(targetDirection);
+
+      if (dotProduct > normalThreshold) {
+        // This normal is generally pointing in the targetDirection
+        // You can do something with this normal or its corresponding vertex
+        console.log(
+          `Normal at index ${i / 3} is pointing in the target direction.`
+        );
+      }
+    }
+  };
+
   for (let i = 0; i < vertexArray.length; i += 3) {
     vertices.push([vertexArray[i], vertexArray[i + 1], vertexArray[i + 2]]);
   }
 
-  const faces: number[][] = [];
   for (let i = 0; i < geometry.index!.array.length; i += 3) {
     faces.push([
       geometry.index!.array[i],
@@ -47,9 +74,6 @@ export const D20 = () => {
     }),
     modelRef
   );
-
-  const linearVelRef = useRef([0, 0, 0]);
-  const angularVelRef = useRef([0, 0, 0]);
 
   useEffect(() => {
     const unsubscribeLinear = api.velocity.subscribe((v) => {
@@ -79,8 +103,9 @@ export const D20 = () => {
           api.mass.set(0);
           api.velocity.set(0, 0, 0);
           api.angularVelocity.set(0, 0, 0);
-          // Optional: Do something when at rest, e.g., read the top face
+          
           console.log("SHOULD BE ONCE AND NEVER AGAIN");
+          determineDiceSide()
         }
       } else {
         restCounterRef.current = 0;
