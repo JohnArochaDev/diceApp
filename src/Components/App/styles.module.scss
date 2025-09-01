@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+          touch-action: none;
 }
 
 .background {
@@ -16,4 +17,6 @@ body {
   height: 100vh;
   position: relative;
   background-image: linear-gradient(0, #2b383a, #20292b);
+  overflow: hidden;
+  touch-action: none;
 }

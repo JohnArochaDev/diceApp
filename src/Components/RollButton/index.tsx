@@ -2,11 +2,14 @@ import styles from "./styles.module.scss";
 import { useScene } from "../../Context";
 
 export const RollButton = () => {
-  const { setReset } = useScene();
+  const { setReset, setSimulate, simulate, reset } = useScene();
 
-	const onClick = () => {
-		setReset(true)
-	}
+  const onClick = () => {
+    setReset(!reset);
+    if (!simulate) {
+      setSimulate(true);
+    }
+  };
 
   return (
     <div className={styles.container}>
