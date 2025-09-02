@@ -44,7 +44,7 @@ export const RollButton = () => {
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
-        <Button variant="contained" onClick={onClick} sx={sx}>
+        <Button variant="contained" onClick={onClick} sx={sx} disabled={simulate}>
           <span
             style={{
               display: "flex",
