@@ -52,7 +52,7 @@ export const D20 = () => {
       mass: 0,
       position: [0, 0, 6],
       args: [vertices, faces],
-      scale: [.1, .1, .1],
+      scale: [0.07, 0.07, 0.07],
       type: "Dynamic",
     }),
     modelRef
@@ -88,7 +88,7 @@ export const D20 = () => {
           api.angularVelocity.set(0, 0, 0);
 
           console.log("SHOULD BE ONCE AND NEVER AGAIN");
-          resetDice()
+          resetDice();
         }
       } else {
         restCounterRef.current = 0;
@@ -118,7 +118,7 @@ export const D20 = () => {
       ref={modelRef}
       object={d20}
       position={[0, 0, 0]}
-      scale={[1, 1, 1]}
+      scale={[0.7, 0.7, 0.7]}
     />
   );
 };

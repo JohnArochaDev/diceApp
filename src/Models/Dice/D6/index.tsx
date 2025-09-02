@@ -52,7 +52,7 @@ export const D6 = () => {
       mass: 0,
       position: [0, 0, 6],
       args: [vertices, faces],
-      scale: [0.1, 0.1, 0.1],
+      scale: [0.07, 0.07, 0.07],
       type: "Dynamic",
     }),
     modelRef
@@ -118,7 +118,7 @@ export const D6 = () => {
       ref={modelRef}
       object={d6}
       position={[0, 0, 0]}
-      scale={[1, 1, 1]}
+      scale={[0.7, 0.7, 0.7]}
     />
   );
 };
