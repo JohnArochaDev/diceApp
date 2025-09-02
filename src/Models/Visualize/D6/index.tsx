@@ -53,7 +53,6 @@ export const D6Vis = () => {
     });
   }, [d6]);
 
-  console.log("D6Vis component mounted/rendered");
   return (
     <primitive
       visible={visible}

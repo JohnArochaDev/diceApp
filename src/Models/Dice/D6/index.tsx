@@ -87,7 +87,6 @@ export const D6 = () => {
           api.velocity.set(0, 0, 0);
           api.angularVelocity.set(0, 0, 0);
 
-          console.log("SHOULD BE ONCE AND NEVER AGAIN");
           resetDice();
         }
       } else {
