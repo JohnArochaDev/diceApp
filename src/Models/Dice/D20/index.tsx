@@ -25,32 +25,14 @@ export const D20 = () => {
   const faces: number[][] = [];
   const vertexArray = geometry.attributes.position.array;
   const vertices: [number, number, number][] = [];
-  const normalAttribute = geometry.attributes.normal;
-  const normalsArray = normalAttribute.array;
-  const targetDirection = new THREE.Vector3(0, 1, 0).normalize(); // pointing upwards
-  const normalThreshold = 0.9;
 
   const [isAtRest, setIsAtRest] = useState(false);
-  const { simulate, reset } = useScene();
+  const { simulate, reset, setSimulate } = useScene();
 
-  const determineDiceSide = () => {
-    for (let i = 0; i < normalsArray.length; i += 3) {
-      const normal = new THREE.Vector3(
-        normalsArray[i],
-        normalsArray[i + 1],
-        normalsArray[i + 2]
-      ).normalize();
-
-      const dotProduct = normal.dot(targetDirection);
-
-      if (dotProduct > normalThreshold) {
-        // This normal is generally pointing in the targetDirection
-        // You can do something with this normal or its corresponding vertex
-        console.log(
-          `Normal at index ${i / 3} is pointing in the target direction.`
-        );
-      }
-    }
+  const resetDice = () => {
+    setTimeout(() => {
+      setSimulate(false);
+    }, 3000);
   };
 
   for (let i = 0; i < vertexArray.length; i += 3) {
@@ -106,7 +88,7 @@ export const D20 = () => {
           api.angularVelocity.set(0, 0, 0);
 
           console.log("SHOULD BE ONCE AND NEVER AGAIN");
-          determineDiceSide()
+          resetDice()
         }
       } else {
         restCounterRef.current = 0;

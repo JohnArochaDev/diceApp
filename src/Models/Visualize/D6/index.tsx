@@ -1,9 +1,13 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
+import { useScene } from "../../../Context";
 
 export const D6Vis = () => {
   const { scene: d6 } = useGLTF("/models/D6/mesh/d6Vis.glb");
+
+  const { simulate, selection } = useScene();
+
   const ref = useRef<THREE.Group>(null);
   const draggingRef = useRef(false);
   const prevPosRef = useRef({ x: 0, y: 0 });
@@ -48,8 +52,10 @@ export const D6Vis = () => {
     });
   }, [d6]);
 
+  console.log("D6Vis component mounted/rendered");
   return (
     <primitive
+      visible={!simulate && selection === "d6"}
       ref={ref}
       castShadow
       object={d6}
