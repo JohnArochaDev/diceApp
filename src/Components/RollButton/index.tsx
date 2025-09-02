@@ -63,7 +63,7 @@ export const RollButton = () => {
                 alignItems: "center",
               }}
             >
-              <Icon path={mdiDice5} size={1} className={styles.iconLeft} />
+              <Icon path={mdiDice5} size={.8} className={styles.iconLeft} />
             </span>
             <span style={{ margin: "0 auto", textAlign: "center" }}>
               ROLL THE DICE
@@ -78,7 +78,7 @@ export const RollButton = () => {
                 alignItems: "center",
               }}
             >
-              <Icon path={mdiDice5} size={1} className={styles.iconRight} />
+              <Icon path={mdiDice5} size={.8} className={styles.iconRight} />
             </span>
           </span>
         </Button>
