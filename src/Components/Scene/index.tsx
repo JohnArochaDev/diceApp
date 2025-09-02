@@ -8,10 +8,10 @@ import { Suspense } from "react"; // Add this import
 import { D20 } from "../../Models/Dice/D20";
 
 export const Scene = () => {
-  const { simulate } = useScene();
+  const { simulate, selection } = useScene();
   const distance = 5;
 
-  console.log('WAT DIS', simulate)
+  console.log("WAT DIS", simulate);
 
   return (
     <Canvas
@@ -34,7 +34,7 @@ export const Scene = () => {
         <Box distance={distance} />
         <D20 />
       </Physics>
-      {!simulate && (
+      {(!simulate && selection === 'd20') && (
         <Suspense fallback={null}>
           <D20Vis />
         </Suspense>

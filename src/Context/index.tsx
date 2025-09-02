@@ -14,7 +14,11 @@ interface SceneContextType {
   setReset: Dispatch<SetStateAction<boolean>>;
   initialValues: object;
   setInitialValues: Dispatch<SetStateAction<object>>;
+  selection: DiceType;
+  setSelection: Dispatch<SetStateAction<DiceType>>;
 }
+
+export type DiceType = "d6" | "d20";
 
 export const SceneContext = createContext<SceneContextType>({
   simulate: false,
@@ -23,6 +27,8 @@ export const SceneContext = createContext<SceneContextType>({
   setReset: () => {},
   initialValues: {},
   setInitialValues: () => {},
+  selection: "d6",
+  setSelection: () => "d6",
 });
 
 export const useScene = () => {
@@ -37,6 +43,7 @@ export const SceneProvider = ({ children }: { children: ReactNode }) => {
   const [simulate, setSimulate] = useState(false);
   const [reset, setReset] = useState(false);
   const [initialValues, setInitialValues] = useState({});
+  const [selection, setSelection] = useState<DiceType>("d6");
 
   return (
     <SceneContext.Provider
@@ -47,6 +54,8 @@ export const SceneProvider = ({ children }: { children: ReactNode }) => {
         setReset,
         initialValues,
         setInitialValues,
+        setSelection,
+        selection,
       }}
     >
       {children}

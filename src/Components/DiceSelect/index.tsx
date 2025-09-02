@@ -1,15 +1,16 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
+import { useScene } from "../../Context";
+import { type DiceType } from "../../Context";
 
 export default function DiceSelect() {
-  const [dice, setDice] = React.useState("");
+  const { selection, setSelection } = useScene()
 
   const handleChange = (event: SelectChangeEvent) => {
-    setDice(event.target.value as string);
+    setSelection(event.target.value as DiceType);
   };
 
   return (
@@ -49,7 +50,7 @@ export default function DiceSelect() {
             Dice
           </InputLabel>
           <Select
-            value={dice}
+            value={selection}
             label="Dice"
             onChange={handleChange}
             MenuProps={{
@@ -87,8 +88,8 @@ export default function DiceSelect() {
               },
             }}
           >
-            <MenuItem value={20}>D20</MenuItem>
-            <MenuItem value={6}>D6</MenuItem>
+            <MenuItem value={'d20'}>D20</MenuItem>
+            <MenuItem value={'d6'}>D6</MenuItem>
           </Select>
         </FormControl>
       </Box>
