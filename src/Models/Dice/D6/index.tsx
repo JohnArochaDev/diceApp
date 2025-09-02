@@ -32,7 +32,7 @@ export const D6 = () => {
   const resetDice = () => {
     setTimeout(() => {
       setSimulate(false);
-    }, 3000);
+    }, 1500);
   };
 
   for (let i = 0; i < vertexArray.length; i += 3) {
@@ -52,7 +52,7 @@ export const D6 = () => {
       mass: 0,
       position: [0, 0, 6],
       args: [vertices, faces],
-      scale: [0.07, 0.07, 0.07],
+      scale: [0.06, 0.06, 0.06],
       type: "Dynamic",
     }),
     modelRef
@@ -106,8 +106,16 @@ export const D6 = () => {
         THREE.MathUtils.degToRad(Math.random() * 360),
         THREE.MathUtils.degToRad(Math.random() * 360)
       );
-      api.velocity.set(15, 25, 0);
-      api.angularVelocity.set(10, -10, 5);
+      api.velocity.set(
+        (Math.random() * 10 + 10) * (Math.random() < 0.5 ? 1 : -1),
+        Math.random() * 10 + 20,
+        Math.random() * 10 - 5
+      );
+      api.angularVelocity.set(
+        Math.random() * 10 + 5,
+        Math.random() * -10 - 5,
+        Math.random() * 10
+      );
     }
   }, [api, simulate, reset]);
 
@@ -117,7 +125,7 @@ export const D6 = () => {
       ref={modelRef}
       object={d6}
       position={[0, 0, 0]}
-      scale={[0.7, 0.7, 0.7]}
+      scale={[0.6, 0.6, 0.6]}
     />
   );
 };

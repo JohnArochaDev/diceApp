@@ -32,7 +32,7 @@ export const D20 = () => {
   const resetDice = () => {
     setTimeout(() => {
       setSimulate(false);
-    }, 3000);
+    }, 1500);
   };
 
   for (let i = 0; i < vertexArray.length; i += 3) {

@@ -23,8 +23,8 @@ export const D6Vis = () => {
       const deltaY = e.clientY - prevPosRef.current.y;
 
       // Inverted for orbit-like feel (drag left = model rotates right)
-      ref.current.rotation.y -= deltaX * 0.01;
-      ref.current.rotation.x -= deltaY * 0.01;
+      ref.current.rotation.y += deltaX * 0.01;
+      ref.current.rotation.x += deltaY * 0.01;
 
       prevPosRef.current = { x: e.clientX, y: e.clientY };
     };
