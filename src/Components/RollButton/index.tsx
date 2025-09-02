@@ -1,5 +1,7 @@
 import styles from "./styles.module.scss";
 import { useScene } from "../../Context";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { Button } from "@mui/material";
 import Icon from "@mdi/react";
 import { mdiDice5 } from "@mdi/js";
@@ -8,6 +10,8 @@ import "./styles.module.scss";
 
 export const RollButton = () => {
   const { setReset, setSimulate, simulate, reset } = useScene();
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const sx = {
     height: "5vh",
@@ -26,7 +30,7 @@ export const RollButton = () => {
     fontWeight: 600,
     textTransform: "uppercase",
     textAlign: "center",
-    marginBottom: "1.5rem",
+    marginBottom: "3rem",
     "&:hover": {
       opacity: 0.7,
       backgroundColor: "#4a2c2a",
@@ -44,7 +48,12 @@ export const RollButton = () => {
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
-        <Button variant="contained" onClick={onClick} sx={sx} disabled={simulate}>
+        <Button
+          variant="contained"
+          onClick={onClick}
+          sx={sx}
+          disabled={simulate}
+        >
           <span
             style={{
               display: "flex",
@@ -63,9 +72,19 @@ export const RollButton = () => {
                 alignItems: "center",
               }}
             >
-              <Icon path={mdiDice5} size={.8} className={styles.iconLeft} />
+              <Icon
+                path={mdiDice5}
+                size={isSmallScreen ? 0.6 : 0.8}
+                className={styles.iconLeft}
+              />
             </span>
-            <span style={{ margin: "0 auto", textAlign: "center" }}>
+            <span
+              style={{
+                margin: "0 auto",
+                textAlign: "center",
+                fontSize: isSmallScreen ? "0.75rem" : "1rem",
+              }}
+            >
               ROLL THE DICE
             </span>
             <span
@@ -78,7 +97,11 @@ export const RollButton = () => {
                 alignItems: "center",
               }}
             >
-              <Icon path={mdiDice5} size={.8} className={styles.iconRight} />
+              <Icon
+                path={mdiDice5}
+                size={isSmallScreen ? 0.6 : 0.8}
+                className={styles.iconRight}
+              />
             </span>
           </span>
         </Button>

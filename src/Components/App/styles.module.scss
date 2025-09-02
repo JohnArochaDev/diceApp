@@ -20,5 +20,5 @@ body {
   background-image: linear-gradient(0, #2b383a, #20292b);
   overflow: hidden; /* Keep if needed, but test with 'auto' for mobile */
   touch-action: none;
-  padding-bottom: env(safe-area-inset-bottom); /* Adds buffer for mobile bottom bars (iOS/Android) */
+  padding-bottom: env(safe-area-inset-bottom);
 }
