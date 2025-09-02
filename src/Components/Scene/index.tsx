@@ -4,9 +4,10 @@ import { Physics } from "@react-three/cannon";
 import { useScene } from "../../Context";
 import { D20Vis } from "../../Models/Visualize/D20";
 import { Box } from "../../Models/Box";
-import { Suspense } from "react"; // Add this import
+import { Suspense } from "react";
 import { D20 } from "../../Models/Dice/D20";
 import { D6Vis } from "../../Models/Visualize/D6";
+import { D6 } from "../../Models/Dice/D6";
 
 export const Scene = () => {
   const { simulate, selection } = useScene();
@@ -31,7 +32,8 @@ export const Scene = () => {
         <ambientLight intensity={0.5} />
         <directionalLight castShadow position={[0, 1, 1]} intensity={1} />
         <Box distance={distance} />
-        <D20 />
+        {selection === 'd20' && <D20 />}
+        {selection === 'd6' && <D6 />}
       </Physics>
       {(!simulate && selection === 'd20') && (
         <Suspense fallback={null}>
