@@ -92,6 +92,7 @@ export default function DiceSelect() {
             >
               <MenuItem value={"d20"}>D20</MenuItem>
               <MenuItem value={"d6"}>D6</MenuItem>
+              <MenuItem value={"d4"}>D4</MenuItem>
             </Select>
           </FormControl>
         </Box>

@@ -18,7 +18,7 @@ interface SceneContextType {
   setSelection: Dispatch<SetStateAction<DiceType>>;
 }
 
-export type DiceType = "d6" | "d20";
+export type DiceType = "d6" | "d20" | "d4";
 
 export const SceneContext = createContext<SceneContextType>({
   simulate: false,
