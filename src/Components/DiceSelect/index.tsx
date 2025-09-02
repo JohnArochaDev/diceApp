@@ -7,11 +7,11 @@ import { useScene } from "../../Context";
 import { type DiceType } from "../../Context";
 
 export default function DiceSelect() {
-  const { selection, setSelection } = useScene()
+  const { selection, setSelection, setSimulate } = useScene()
 
   const handleChange = (event: SelectChangeEvent) => {
     setSelection(event.target.value as DiceType);
-    console.log(event.target.value as DiceType)
+    setSimulate(false)
   };
 
   return (
