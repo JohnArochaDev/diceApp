@@ -11,6 +11,7 @@ export default function DiceSelect() {
 
   const handleChange = (event: SelectChangeEvent) => {
     setSelection(event.target.value as DiceType);
+    console.log(event.target.value as DiceType)
   };
 
   return (

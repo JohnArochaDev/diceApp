@@ -43,7 +43,7 @@ export const SceneProvider = ({ children }: { children: ReactNode }) => {
   const [simulate, setSimulate] = useState(false);
   const [reset, setReset] = useState(false);
   const [initialValues, setInitialValues] = useState({});
-  const [selection, setSelection] = useState<DiceType>("d6");
+  const [selection, setSelection] = useState<DiceType>("d20");
 
   return (
     <SceneContext.Provider

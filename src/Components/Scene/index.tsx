@@ -6,12 +6,11 @@ import { D20Vis } from "../../Models/Visualize/D20";
 import { Box } from "../../Models/Box";
 import { Suspense } from "react"; // Add this import
 import { D20 } from "../../Models/Dice/D20";
+import { D6Vis } from "../../Models/Visualize/D6";
 
 export const Scene = () => {
   const { simulate, selection } = useScene();
   const distance = 5;
-
-  console.log("WAT DIS", simulate);
 
   return (
     <Canvas
@@ -37,6 +36,11 @@ export const Scene = () => {
       {(!simulate && selection === 'd20') && (
         <Suspense fallback={null}>
           <D20Vis />
+        </Suspense>
+      )}
+      {(!simulate && selection === 'd6') && (
+        <Suspense fallback={null}>
+          <D6Vis />
         </Suspense>
       )}
     </Canvas>
