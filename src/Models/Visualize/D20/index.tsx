@@ -11,6 +11,7 @@ export const D20Vis = () => {
   const ref = useRef<THREE.Group>(null);
   const draggingRef = useRef(false);
   const prevPosRef = useRef({ x: 0, y: 0 });
+  const visible = !simulate && selection === "d20"
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
@@ -54,11 +55,11 @@ export const D20Vis = () => {
 
   return (
     <primitive
-      visible={!simulate && selection === "d20"}
+      visible={visible}
       ref={ref}
       castShadow
       object={d20}
-      position={[0, 0, 0]}
+      position={visible ? [0, 0, 0] : [10, 10, 10]}
       rotation={[0, 0, 0]}
       onPointerDown={(e: any) => {
         e.stopPropagation();

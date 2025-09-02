@@ -11,6 +11,7 @@ export const D6Vis = () => {
   const ref = useRef<THREE.Group>(null);
   const draggingRef = useRef(false);
   const prevPosRef = useRef({ x: 0, y: 0 });
+  const visible = !simulate && selection === "d6"
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
@@ -55,11 +56,11 @@ export const D6Vis = () => {
   console.log("D6Vis component mounted/rendered");
   return (
     <primitive
-      visible={!simulate && selection === "d6"}
+      visible={visible}
       ref={ref}
       castShadow
       object={d6}
-      position={[0, 0, 0]}
+      position={visible ? [0, 0, 0] : [10, 10, 10]}
       rotation={[0, 0, 0]}
       onPointerDown={(e: any) => {
         e.stopPropagation();
