@@ -9,6 +9,8 @@ import { D6Vis } from "../../Models/Visualize/D6";
 import { D6 } from "../../Models/Dice/D6";
 import { D4 } from "../../Models/Dice/D4";
 import { D4Vis } from "../../Models/Visualize/D4";
+import { D8 } from "../../Models/Dice/D8";
+import { D8Vis } from "../../Models/Visualize/D8";
 
 export const Scene = () => {
   const { simulate, selection } = useScene();
@@ -34,10 +36,12 @@ export const Scene = () => {
         <directionalLight castShadow position={[0, 1, 1]} intensity={1} />
         <Box distance={distance} />
         {simulate && selection === "d20" && <D20 />}
+        {simulate && selection === "d8" && <D8 />}
         {simulate && selection === "d6" && <D6 />}
         {simulate && selection === "d4" && <D4 />}
       </Physics>
       <D20Vis />
+      <D8Vis />
       <D6Vis />
       <D4Vis />
     </Canvas>
