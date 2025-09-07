@@ -36,8 +36,15 @@ export const Scene = () => {
           frictionEquationStiffness: 10,
         }}
       >
-        <ambientLight intensity={0.5} />
-        <directionalLight castShadow position={[0, 1, 1]} intensity={1} />
+        <ambientLight intensity={0.4} />
+        <directionalLight
+          castShadow
+          position={[2.5, 5, 5]}
+          intensity={2}
+          shadow-mapSize={[1024, 1024]}
+          shadow-camera-near={0.5}
+          shadow-camera-far={50}
+        />
         <Box distance={distance} />
         {simulate && selection === "d20" && <D20 />}
         {simulate && selection === "d12" && <D12 />}
