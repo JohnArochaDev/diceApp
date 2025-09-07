@@ -92,6 +92,7 @@ export default function DiceSelect() {
             >
               <MenuItem value={"d20"}>D20</MenuItem>
               <MenuItem value={"d12"}>D12</MenuItem>
+              <MenuItem value={"d10"}>D10</MenuItem>
               <MenuItem value={"d8"}>D8</MenuItem>
               <MenuItem value={"d6"}>D6</MenuItem>
               <MenuItem value={"d4"}>D4</MenuItem>

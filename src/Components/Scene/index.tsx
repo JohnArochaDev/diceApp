@@ -13,6 +13,8 @@ import { D8 } from "../../Models/Dice/D8";
 import { D8Vis } from "../../Models/Visualize/D8";
 import { D12Vis } from "../../Models/Visualize/D12";
 import { D12 } from "../../Models/Dice/D12";
+import { D10Vis } from "../../Models/Visualize/D10";
+import { D10 } from "../../Models/Dice/D10";
 
 export const Scene = () => {
   const { simulate, selection } = useScene();
@@ -39,12 +41,14 @@ export const Scene = () => {
         <Box distance={distance} />
         {simulate && selection === "d20" && <D20 />}
         {simulate && selection === "d12" && <D12 />}
+        {simulate && selection === "d10" && <D10 />}
         {simulate && selection === "d8" && <D8 />}
         {simulate && selection === "d6" && <D6 />}
         {simulate && selection === "d4" && <D4 />}
       </Physics>
       <D20Vis />
       <D12Vis />
+      <D10Vis />
       <D8Vis />
       <D6Vis />
       <D4Vis />
