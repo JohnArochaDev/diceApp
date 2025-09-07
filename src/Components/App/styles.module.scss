@@ -22,3 +22,70 @@ body {
   touch-action: none;
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+.goldSquareBR {
+  position: absolute;
+  bottom: 2vh;
+  right: 2vh;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d49e178e;
+  background-color: transparent;
+  transform: rotate(45deg);
+}
+
+.goldSquareBL {
+  position: absolute;
+  bottom: 2vh;
+  left: 2vh;
+  width:25px;
+  height:25px;
+  border: 1px solid #d49e178e;
+  background-color: transparent;
+}
+
+.goldSquareTL {
+  position: absolute;
+  top: 2vh;
+  left: 2vh;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d49e178e;
+  background-color: transparent;
+  transform: rotate(45deg);
+}
+
+.goldCircleTR {
+  position: absolute;
+  top: 2vh;
+  right: 2vh;
+  border-radius: 25px;
+  width:25px;
+  height:25px;
+  border: 1px solid #d49e178e;
+  background-color: transparent;
+}
+
+.goldCircleMiddle {
+  position: absolute;
+  top: 65%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  width: 50vw;
+  height: 50vw;
+  border: 2px solid #d49e178e;
+  background-color: transparent;
+}
+
+.goldCircleMiddleSMall {
+  position: absolute;
+  top: 65%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  width: 40vw;
+  height: 40vw;
+  border: 1px solid #d49e178e;
+  background-color: transparent;
+}

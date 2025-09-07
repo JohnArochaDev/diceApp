@@ -9,6 +9,12 @@ export const App = () => {
   return (
     <SceneProvider>
       <div className={styles.background}>
+        <div className={styles.goldSquareBR} />
+        <div className={styles.goldCircleTR} />
+        <div className={styles.goldSquareBL} />
+        <div className={styles.goldSquareTL} />
+        <div className={styles.goldCircleMiddle} />
+        <div className={styles.goldCircleMiddleSMall} />
         <Title />
         <DiceSelect />
         <Scene />
