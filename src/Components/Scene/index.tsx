@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import styles from "./styles.module.scss";
 import { Physics } from "@react-three/cannon";
@@ -16,9 +17,29 @@ import { D12 } from "../../Models/Dice/D12";
 import { D10Vis } from "../../Models/Visualize/D10";
 import { D10 } from "../../Models/Dice/D10";
 
+declare global {
+  interface Window {
+    handleRollDice?: () => void;
+  }
+}
+
 export const Scene = () => {
-  const { simulate, selection } = useScene();
+  const { setReset, setSimulate, simulate, reset, selection } = useScene();
+
   const distance = 5;
+
+  useEffect(() => {
+    const handleRollDice = () => {
+      if (!simulate) {
+        setReset(!reset);
+        if (!simulate) {
+          setSimulate(true);
+        }
+      }
+    };
+    window.handleRollDice = handleRollDice;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Canvas
